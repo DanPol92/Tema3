@@ -1,6 +1,7 @@
 public class Student  extends Person{
     private int studyYear;
     private String studyStatus;
+    private int amountToPay;
 
     public Student(String nume, int id, int studyYear,String studyStatus) {
         super(nume, id);
@@ -8,6 +9,9 @@ public class Student  extends Person{
         this.studyStatus=studyStatus;
     }
 
+    public int getAmountToPay() {
+        return amountToPay;
+    }
 
     public int getStudyYear() {
         return studyYear;
@@ -15,9 +19,11 @@ public class Student  extends Person{
 
     public void getPaymentForStudy(){
         if(studyStatus.equalsIgnoreCase("budget")){
-            System.out.println("Studentul "+getNume()+" nu apare in sistem cu datorii");
+            amountToPay=0;
+            System.out.println("Studentul "+getNume()+" are de achitat taxa de: "+amountToPay+" RON");
         }else if(studyStatus.equalsIgnoreCase("tax")){
-            System.out.println("Studentul "+getNume()+" are de achitat taxa de 3500RON aferenta anului in curs");
+            amountToPay=3500;
+            System.out.println("Studentul "+getNume()+" are de achitat taxa de: "+amountToPay+" RON");
         }
     }
 
